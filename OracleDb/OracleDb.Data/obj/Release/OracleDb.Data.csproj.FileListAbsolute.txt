@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\OracleDb.Data.dll.config
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\OracleDb.Data.dll
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\OracleDb.Data.pdb
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\EntityFramework.dll
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\OracleDb.Model.dll
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\OracleDb.Model.pdb
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\EntityFramework.xml
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\obj\Release\OracleDb.Data.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\obj\Release\OracleDb.Data.dll
+C:\Users\Admin\Desktop\Oracle2\OracleDb\OracleDb.Data\obj\Release\OracleDb.Data.pdb
