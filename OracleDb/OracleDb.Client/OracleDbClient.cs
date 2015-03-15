@@ -62,16 +62,13 @@ using System.Linq.Expressions;
             {
                 var vendorsForUpdate = db.Vendors.Where(expression).ToList();
 
-                if (vendorsForUpdate.Count == 0)
+                if (vendorsForUpdate.Count > 0)
                 {
-                    throw new InvalidOperationException("No Vendors found.");
+                    foreach (var v in vendorsForUpdate)
+                    {
+                        v.VENDOR_NAME = vendor.VENDOR_NAME;
+                    }
                 }
-
-                foreach (var v in vendorsForUpdate)
-                {
-                    v.VENDOR_NAME = vendor.VENDOR_NAME;
-                }
-
 
                 return db.SaveChanges();
             }
@@ -84,12 +81,10 @@ using System.Linq.Expressions;
                 
                 var vendorForUpdate = db.Vendors.Where(v => v.ID == id).FirstOrDefault();
 
-                if (vendorForUpdate == null)
+                if (vendorForUpdate != null)
                 {
-                    throw new InvalidOperationException("Vendor with this id does not exists.");
+                    vendorForUpdate.VENDOR_NAME = vendor.VENDOR_NAME;
                 }
-
-                vendorForUpdate.VENDOR_NAME = vendor.VENDOR_NAME;
 
                 return db.SaveChanges();
             }
@@ -101,14 +96,12 @@ using System.Linq.Expressions;
             {
                 var vendorsForDelete = db.Vendors.Where(expression).ToList();
 
-                if (vendorsForDelete.Count == 0)
+                if (vendorsForDelete.Count > 0)
                 {
-                    throw new InvalidOperationException("No Vendors found.");
-                }
-
-                foreach (var v in vendorsForDelete)
-                {
-                    db.Vendors.Remove(v);
+                    foreach (var v in vendorsForDelete)
+                    {
+                        db.Vendors.Remove(v);
+                    }
                 }
 
                 return db.SaveChanges();
@@ -121,12 +114,11 @@ using System.Linq.Expressions;
             {
                 var vendorsForDelete = db.Vendors.Where(v => v.ID == id).FirstOrDefault();
 
-                if (vendorsForDelete == null)
+                if (vendorsForDelete != null)
                 {
-                    throw new InvalidOperationException("Vendor with this id does not exists.");
+                    db.Vendors.Remove(vendorsForDelete);
                 }
 
-                db.Vendors.Remove(vendorsForDelete);
                 return db.SaveChanges();
             }
         }
@@ -171,14 +163,12 @@ using System.Linq.Expressions;
             {
                 var measuresForUpdate = db.Measures.Where(expression).ToList();
 
-                if (measuresForUpdate.Count == 0)
+                if (measuresForUpdate.Count > 0)
                 {
-                    throw new InvalidOperationException("No Measures found");
-                }
-
-                foreach (var m in measuresForUpdate)
-                {
-                    m.MEASURE_NAME = measure.MEASURE_NAME;
+                    foreach (var m in measuresForUpdate)
+                    {
+                        m.MEASURE_NAME = measure.MEASURE_NAME;
+                    }
                 }
 
                 return db.SaveChanges();
@@ -191,12 +181,10 @@ using System.Linq.Expressions;
             {
                 var measureForUpdate = db.Measures.Where(m => m.ID == id).FirstOrDefault();
 
-                if (measureForUpdate == null)
+                if (measureForUpdate != null)
                 {
-                    throw new InvalidOperationException("Measure with this ide does not exists.");
+                    measureForUpdate.MEASURE_NAME = measure.MEASURE_NAME;
                 }
-
-                measureForUpdate.MEASURE_NAME = measure.MEASURE_NAME;
 
                 return db.SaveChanges();
             }
@@ -209,14 +197,12 @@ using System.Linq.Expressions;
             {
                 var measuresForDelete = db.Measures.Where(expression).ToList();
 
-                if (measuresForDelete.Count == 0)
+                if (measuresForDelete.Count > 0)
                 {
-                    throw new InvalidOperationException("No Measures found.");
-                }
-
-                foreach (var m in measuresForDelete)
-                {
-                    db.Measures.Remove(m);
+                    foreach (var m in measuresForDelete)
+                    {
+                        db.Measures.Remove(m);
+                    }
                 }
 
                 return db.SaveChanges();
@@ -229,23 +215,125 @@ using System.Linq.Expressions;
             {
                 var measureForDelete = db.Measures.Where(m => m.ID == id).FirstOrDefault();
 
-                if (measureForDelete == null)
+                if (measureForDelete != null)
                 {
-                    throw new InvalidOperationException("Measure with such id does not exists.");
+                    db.Measures.Remove(measureForDelete);
                 }
-
-                db.Measures.Remove(measureForDelete);
 
                 return db.SaveChanges();
             }
         }
-
 
         public static int CreateProduct(Product product)
         {
             using (var db = new OracleDbContext())
             {
                 db.Products.Add(product);
+                return db.SaveChanges();
+            }
+        }
+
+        public static ICollection<Product> ReadAllProducts()
+        {
+            using (var db = new OracleDbContext())
+            {
+                return db.Products.ToList();
+            }
+        }
+
+        public static Product ReadProductById(int id)
+        {
+            using (var db = new OracleDbContext())
+            {
+                return db.Products.Where(p => p.ID == id).FirstOrDefault();
+            }
+        }
+
+        public static ICollection<Product> ReadProductsByExpression(Expression<Func<Product, bool>> expression)
+        {
+            using (var db = new OracleDbContext())
+            {
+                return db.Products.Where(expression).ToList();
+            }
+        }
+
+        public static int UpdateProductsByExpression
+            (Expression<Func<Product, bool>> expression, Product product)
+        {
+            using (var db = new OracleDbContext())
+            {
+                var productsForUpdate = db.Products.Where(expression).ToList();
+
+                if (productsForUpdate.Count > 0)
+                {
+                    foreach (var p in productsForUpdate)
+                    {
+                        p.VENDOR_ID = product.VENDOR_ID != null ? product.VENDOR_ID : p.VENDOR_ID;
+                        p.PRODUCT_NAME = product.PRODUCT_NAME != null ? product.PRODUCT_NAME : p.PRODUCT_NAME;
+                        p.MEASURE_ID = product.MEASURE_ID != null ? product.MEASURE_ID : p.MEASURE_ID;
+                        p.PRICE = product.PRICE != null ? product.PRICE : p.PRICE;
+                    }
+                }
+
+                return db.SaveChanges();
+            }
+        }
+
+        public static int UpdateProductById(int id, Product product)
+        {
+            using (var db = new OracleDbContext())
+            {
+                var productForUpdate = db.Products.Where(p => p.ID == id).FirstOrDefault();
+
+                if (productForUpdate != null)
+                {
+                        productForUpdate.VENDOR_ID = product.VENDOR_ID != null 
+                            ? product.VENDOR_ID : productForUpdate.VENDOR_ID;
+
+                        productForUpdate.PRODUCT_NAME = product.PRODUCT_NAME != null
+                            ? product.PRODUCT_NAME : productForUpdate.PRODUCT_NAME;
+
+                        productForUpdate.MEASURE_ID = product.MEASURE_ID != null
+                            ? product.MEASURE_ID : productForUpdate.MEASURE_ID;
+
+                        productForUpdate.PRICE = product.PRICE !=null
+                            ? product.PRICE : productForUpdate.PRICE;
+                }
+
+                return db.SaveChanges();
+            }
+        }
+
+        public static int DeleteProductsByExpression
+            (Expression<Func<Product, bool>> expression)
+        {
+            using (var db = new OracleDbContext())
+            {
+                var productsForDelete = db.Products.Where(expression).ToList();
+
+                if (productsForDelete.Count > 0)
+                {
+                    foreach (var p in productsForDelete)
+                    {
+                        db.Products.Remove(p);
+                    }
+                }
+
+                return db.SaveChanges();
+            }
+        }
+
+        public static int DeleteProductById(int id)
+        {
+            using (var db = new OracleDbContext())
+            {
+                var productForDelete = db.Products.Where(p => p.ID == id).FirstOrDefault();
+
+                if (productForDelete != null)
+                {
+                    db.Products.Remove(productForDelete);
+                }
+
                 return db.SaveChanges();
             }
         }
