@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +20,18 @@ namespace JsonAndMongo
         }
 
         public int Id { get; set; }
+
         public string ProductName { get; set; }
+
         public string VendorName { get; set; }
+
         public int Quantity { get; set; }
+
         public decimal Incomes { get; set; }
 
         public override string ToString()
         {
-            return string.Format("product-id: {0}, product-name: {1}, vandor-name: {2}, total-quantity-sold: {3}, total-incomes: {3}",
+            return string.Format("product-id: {0}, product-name: {1}, vandor-name: {2}, total-quantity-sold: {3}, total-incomes: {4}",
                 this.Id, this.ProductName, this.VendorName, this.Quantity,this.Incomes);
         }
     }
