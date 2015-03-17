@@ -20,6 +20,7 @@ namespace SQLServer.Model
         public Nullable<decimal> PriceSum { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> SupermarketID { get; set; }
+        public Nullable<decimal> PriceUnit { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Supermarket Supermarket { get; set; }

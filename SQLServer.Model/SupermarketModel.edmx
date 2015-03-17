@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SupermarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SupermarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Expenses">
           <Key>
             <PropertyRef Name="ID" />
@@ -41,6 +41,7 @@
           <Property Name="PriceSum" Type="money" />
           <Property Name="Date" Type="datetime" />
           <Property Name="SupermarketID" Type="int" />
+          <Property Name="PriceUnit" Type="money" />
         </EntityType>
         <EntityType Name="Supermarkets">
           <Key>
@@ -144,8 +145,7 @@
             <End Role="Sales" EntitySet="Sales" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SupermarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -192,6 +192,7 @@
           <Property Name="SupermarketID" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Sales_Products" FromRole="Sales" ToRole="Products" />
           <NavigationProperty Name="Supermarket" Relationship="Self.FK_Sales_Supermarkets" FromRole="Sales" ToRole="Supermarkets" />
+          <Property Name="PriceUnit" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Supermarket">
           <Key>
@@ -336,6 +337,7 @@
           <EntitySetMapping Name="Sales">
             <EntityTypeMapping TypeName="SupermarketModel.Sale">
               <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
