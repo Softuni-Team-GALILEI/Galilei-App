@@ -10,56 +10,37 @@ namespace XlsxToMSSQL
 {
     class ExcelInterface
     {
-        static void LoadWorksheets(Stream stream, SqlDateTime date)
+        static void LoadWorksheets(Stream stream)
         {
-            Console.WriteLine(date);
             IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(stream);
             Console.WriteLine(reader.Name);
             DataSet result = reader.AsDataSet();
             foreach (DataTable table in result.Tables)
-            {                
+            {
                 foreach (DataRow row in table.Rows)
                 {
                     int i = 0;
-                    object[] data = new object[6];
                     foreach (var item in row.ItemArray)
                     {
-                        if (item != null)
-	                    {
-                            //data[i] = item;
-                            //i++;                     
-	                    }
+                        i++;
                         Console.WriteLine(item.ToString());
                     }
                 }
             }
         }
 
-        private static void ParseWorksheetData(object[] data)
-        {
-            SqlString productName = data[0] as string;
-            SqlInt32 productQty = SqlInt32.Parse(data[1] as string);
-            SqlDecimal productPrice = SqlDecimal.Parse(data[2] as string);
-            SqlDecimal totalSum = SqlDecimal.Parse(data[3] as string);
-            SqlDateTime date = (SqlDateTime)data[4];
-            SqlString location = data[5] as string;
-        }
         static void ReadFilesFromZip(string path)
         {
             ZipFile zip = new ZipFile(path);
             Console.WriteLine(zip.Name);
             foreach (ZipEntry zipEntry in zip.Entries)
             {
-                if (zipEntry.IsDirectory)
-                {
-                    Console.WriteLine(zipEntry.FileName);
-                }
                 if (!zipEntry.IsDirectory && ( zipEntry.FileName.Contains(".xlsx") || zipEntry.FileName.Contains(".xls") ))
                 {
                     Console.WriteLine(zipEntry.FileName);
                     MemoryStream memStream = new MemoryStream();
                     zipEntry.Extract(memStream);
-                    LoadWorksheets(memStream, DateTime.Parse(zipEntry.FileName.Substring(0, zipEntry.FileName.IndexOf('/'))));
+                    LoadWorksheets(memStream);
                 }
             }
         }

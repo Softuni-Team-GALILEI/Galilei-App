@@ -13,16 +13,3 @@ D:\Code\Softuni\SoftuniRepo\SQL\Teamwork\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\Ionic
 D:\Code\Softuni\SoftuniRepo\SQL\Teamwork\XlsxToMSSQL\XlsxToMSSQL\obj\Debug\OracleAndXlsToMSSQL.csprojResolveAssemblyReference.cache
 D:\Code\Softuni\SoftuniRepo\SQL\Teamwork\XlsxToMSSQL\XlsxToMSSQL\obj\Debug\XlsxToMSSQL.exe
 D:\Code\Softuni\SoftuniRepo\SQL\Teamwork\XlsxToMSSQL\XlsxToMSSQL\obj\Debug\XlsxToMSSQL.pdb
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\XlsxToMSSQL.exe.config
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\obj\Debug\XlsxToMSSQL.exe
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\obj\Debug\XlsxToMSSQL.pdb
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\XlsxToMSSQL.exe
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\XlsxToMSSQL.pdb
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\Excel.dll
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\Ionic.Zip.dll
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\EntityFramework.xml
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\Excel.pdb
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\bin\Debug\Ionic.Zip.xml
-C:\Users\Ace\Galilei-App\XlsxToMSSQL\XlsxToMSSQL\obj\Debug\OracleAndXlsToMSSQL.csprojResolveAssemblyReference.cache
