@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Infrastructure.Interception;
-using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Linq.Expressions;
-using SQLServer.Model;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-
-namespace SQLServer.Client
+﻿namespace SQLServer.Client
 {
-    static partial class SqlServerClient
+    using System;
+    using System.Linq;
+    using SQLServer.Model;
+    using System.Data.Entity;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
+    public static partial class SqlServerClient
     {
         private static SupermarketEntities dbContext = new SupermarketEntities();
         
@@ -63,7 +54,7 @@ namespace SQLServer.Client
         {
             return dbContext.Sales.First(s => s.ID == id);
         }
-        public static Measure GetMeasuresById(int id)
+        public static Measure GetMeasureById(int id)
         {
             return dbContext.Measures.First(s => s.ID == id);;
         }
@@ -182,7 +173,10 @@ namespace SQLServer.Client
             try
             {
                 List<Supermarket> markets = dbContext.Supermarkets.Where(expression).ToList();
-                markets.ForEach(m => m = newItem);
+                foreach (Supermarket market in markets)
+                {
+                    market.Name = newItem.Name;
+                }
 
                 dbContext.SaveChanges();
                 dbTransaction.Commit();
@@ -199,8 +193,17 @@ namespace SQLServer.Client
             try
             {
                 List<Product> products = dbContext.Products.Where(expression).ToList();
-                products.ForEach(m => m = newItem);
-
+                foreach (Product product in products)
+                {
+                    if (newItem.Price!= null)
+                    {
+                        product.Price = newItem.Price;   
+                    }
+                    if (newItem.Product_Name != null)
+                    {
+                        product.Product_Name = newItem.Product_Name;   
+                    }
+                }
                 dbContext.SaveChanges();
                 dbTransaction.Commit();
             }
@@ -216,7 +219,18 @@ namespace SQLServer.Client
             try
             {
                 List<Vendor> Vendors = dbContext.Vendors.Where(expression).ToList();
-                Vendors.ForEach(m => m = newItem);
+                foreach (Vendor vendor in Vendors)
+                {
+                    vendor.Vendor_Name = newItem.Vendor_Name;
+                    if (newItem.Expenses != null)
+                    {
+                        vendor.Products = newItem.Products;  
+                    }
+                    if (newItem.Expenses != null)
+                    {
+                        vendor.Expenses = newItem.Expenses;
+                    }
+                }
 
                 dbContext.SaveChanges();
                 dbTransaction.Commit();
@@ -233,8 +247,29 @@ namespace SQLServer.Client
             try
             {
                 List<Sale> Sales = dbContext.Sales.Where(expression).ToList();
-                Sales.ForEach(m => m = newItem);
-
+                foreach (Sale sale in Sales)
+                {
+                    if (sale.PriceSum != null)
+                    {
+                        sale.PriceSum = newItem.PriceSum;
+                    }
+                    if (sale.Date != null)
+                    {
+                        sale.Date = newItem.Date;
+                    }
+                    if (sale.Supermarket != null)
+                    {
+                        sale.Supermarket = newItem.Supermarket;
+                    }
+                    if (sale.PriceUnit != null)
+                    {
+                        sale.PriceUnit = newItem.PriceUnit;
+                    }
+                    if (sale.Quantity != null)
+                    {
+                        sale.Quantity = newItem.Quantity;
+                    }
+                }
                 dbContext.SaveChanges();
                 dbTransaction.Commit();
             }
@@ -251,8 +286,13 @@ namespace SQLServer.Client
             try
             {
                 List<Measure> Measures = dbContext.Measures.Where(expression).ToList();
-                Measures.ForEach(m => m = newItem);
-
+                foreach (Measure measure in Measures)
+                {
+                    if (newItem.Measure_Name != null)
+                    {
+                        measure.Measure_Name = newItem.Measure_Name;
+                    }
+                }
                 dbContext.SaveChanges();
                 dbTransaction.Commit();
             }
@@ -268,7 +308,17 @@ namespace SQLServer.Client
             try
             {
                 List<Expens> Expenses = dbContext.Expenses.Where(expression).ToList();
-                Expenses.ForEach(m => m = newItem);
+                foreach (Expens expense in Expenses)
+                {
+                    if (newItem.ExpenseSum != null)
+                    {
+                        expense.ExpenseSum = newItem.ExpenseSum;
+                    }
+                    if (newItem.Time != null)
+                    {
+                        expense.Time = newItem.Time;
+                    }
+                }
 
                 dbContext.SaveChanges();
                 dbTransaction.Commit();
@@ -381,8 +431,103 @@ namespace SQLServer.Client
             }
         }
         #endregion
-    }
 
+        #region Delete By Id
+        public static void DeleteSupermarketById(int id)
+        {
+            var dbTransaction = dbContext.Database.BeginTransaction();
+            try
+            {
+                dbContext.Supermarkets.Remove(GetSupermarketsById(id));
+                dbContext.SaveChanges();
+                dbTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                dbTransaction.Dispose();
+                throw;
+            }
+        }
+        public static void DeleteProductById(int id)
+        {
+            var dbTransaction = dbContext.Database.BeginTransaction();
+            try
+            {
+                dbContext.Products.Remove(GetProductsById(id));
+                dbContext.SaveChanges();
+                dbTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                dbTransaction.Dispose();
+                throw;
+            }
+        }
+        public static void DeleteVendorById(int id)
+        {
+            var dbTransaction = dbContext.Database.BeginTransaction();
+            try
+            {
+                dbContext.Vendors.Remove(GetVendorsById(id));
+                dbContext.SaveChanges();
+                dbTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                dbTransaction.Rollback();
+                throw;
+            }
+        }
+        public static void DeleteSaleById(int id)
+        {
+            var dbTransaction = dbContext.Database.BeginTransaction();
+            try
+            {
+                dbContext.Sales.Remove(GetSalesById(id));
+                dbContext.SaveChanges();
+                dbTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                dbTransaction.Rollback();
+                throw;
+            }
+
+        }
+        public static void DeleteMeasureById(int id)
+        {
+            var dbTransaction = dbContext.Database.BeginTransaction();
+            try
+            {
+                dbContext.Measures.Remove(GetMeasureById(id));
+                dbContext.SaveChanges();
+                dbTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                dbTransaction.Rollback();
+                throw;
+            }
+        }
+        public static void DeleteExpenseById(int id)
+        {
+            var dbTransaction = dbContext.Database.BeginTransaction();
+            try
+            {
+                dbContext.Expenses.Remove(GetExpensesById(1));
+                dbContext.SaveChanges();
+                dbTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                dbTransaction.Rollback();
+                throw;
+            }
+        }
+        #endregion
+
+    }
+    #region TestClass
     static class TestClass
     {
         public static void Main()
@@ -392,6 +537,12 @@ namespace SQLServer.Client
             Supermarket s = new Supermarket();
             s.Name = "Nov Supermarket2";
             SqlServerClient.AddSupermarket(s);
+            ReadMarkets();
+            Supermarket s2 = new Supermarket();
+            s2.Name = "O6tePoNovMarket";
+            SqlServerClient.UpdateSupermarketByExpression(supermarket => supermarket.Name == "Nov Supermarket", s2);
+            ReadMarkets();
+            SqlServerClient.DeleteSupermarketById(6);
             ReadMarkets();
             Console.ReadKey();
         }
@@ -404,4 +555,5 @@ namespace SQLServer.Client
             }
         }
     }
+#endregion
 }
