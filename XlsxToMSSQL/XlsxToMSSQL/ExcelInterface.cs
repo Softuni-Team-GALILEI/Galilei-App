@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlTypes;
-using System.IO;
-using Excel;
-using Ionic.Zip;
-
-namespace XlsxToMSSQL
+﻿namespace XlsxToMSSQL
 {
+    using Excel;
+    using System;
+    using Ionic.Zip;
+    using System.IO;
+    using System.Data;
+
     class ExcelInterface
     {
         static void LoadWorksheets(Stream stream)
@@ -43,10 +41,6 @@ namespace XlsxToMSSQL
                     LoadWorksheets(memStream);
                 }
             }
-        }
-        void PopulateList()
-        {
-
         }
 
         static void InputZip()
