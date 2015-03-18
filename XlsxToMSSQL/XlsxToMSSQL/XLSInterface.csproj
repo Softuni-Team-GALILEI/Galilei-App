@@ -67,6 +67,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SQLServer.Client\SQLServer.Client.csproj">
+      <Project>{798bc705-f752-4ae6-9ae9-691681f72fb7}</Project>
+      <Name>SQLServer.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SQLServer.Model\SQLServer.Model.csproj">
+      <Project>{3cc929d4-2ab1-4718-95a7-d99cd2f754de}</Project>
+      <Name>SQLServer.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -15,7 +15,7 @@ namespace SQLServer.Model
     public partial class Sale
     {
         public int ID { get; set; }
-        public Nullable<int> ProductID { get; set; }
+        public int ProductID { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> PriceSum { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
