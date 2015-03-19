@@ -1,22 +1,22 @@
-﻿using SQLServer.Model;
+﻿using System.Collections.Generic;
 
 namespace SalesReports
 {
+    using System;
     using System.IO;
+    using System.Linq;
+    using SQLServer.Model;
     using iTextSharp.text;
     using iTextSharp.text.pdf;
-    using System;
-    using System.Linq;
 
     public static class PdfExpenses
     {
-        public static void CreatePdfSalesReport(DateTime startDate, DateTime endDate)
+        public static void CreatePdfSalesReport(string path, DateTime startDate, DateTime endDate, List<Supermarket> supermarkets, List<Sale> sales, List<Product> products)
         {
             // TODO: change save dir, add table style
-            FileStream fs = new FileStream("Sales-Report.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+            FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
             Document doc = new Document(PageSize.A4, 36, 36, 36, 36);
             PdfWriter.GetInstance(doc, fs);
-
             doc.Open();
             PdfPTable table = new PdfPTable(5);
             table.WidthPercentage = 100;

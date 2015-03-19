@@ -1,1 +1,13 @@
 c:\users\user\documents\visual studio 2013\Projects\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.exe.config
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.csprojResolveAssemblyReference.cache
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.pdb
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\EntityFramework.dll
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Client.exe
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Model.dll
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Client.pdb
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Model.pdb
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\EntityFramework.xml
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.pdb
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.dll.config
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.dll
+D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.dll
