@@ -1,17 +1,24 @@
-﻿using JsonAndMongo;
-
-namespace ConsoleFrontend
+﻿namespace ConsoleFrontend
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using GenerateXmlReport;
+    using JsonAndMongo;
+    using SQLServer.Model;
     using LoadDataFromXml;
     using SQLServer.Client;
-    using SQLServer.Model;
+    using GenerateXmlReport;
+    using System.Collections.Generic;
 
-    class Program
+    class ConsoleFrontend
     {
+        static void Main()
+        {
+            Menu();
+        }
+
+
+        #region Hard-Coded Input & Output
+
         private static string inputExcel            = "Input/excel.zip";
         private static string inputReport           = "Input/report.xml";
         private static string outputReport          = "Output/report.xml";
@@ -19,6 +26,11 @@ namespace ConsoleFrontend
         private static string outputJson            = "Output/";
         private static DateTime sampleDataStartDate = new DateTime(2014, 7, 20);
         private static DateTime sampleDataEndDate   = new DateTime(2014, 7, 22);
+
+        #endregion
+
+
+        #region CLI menu
         static void Menu()
         {
             Console.Clear();
@@ -57,25 +69,10 @@ namespace ConsoleFrontend
                     break;
             }
         }
+        #endregion
+        
 
-        static void Main(string[] args)
-        {
-            Menu();
-        }
-
-        static void ExportToJson(string path)
-        {
-            try
-            {
-                ExportToMongo.ExportReportsToMongoAndJson(path, SqlServerClient.GetSales().ToList(), SqlServerClient.GetProducts().ToList());
-                Console.WriteLine("Success");
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Fuck!");
-                throw;
-            }
-        }
+        #region Problem 2 - Import from Excel in Zip Controller
         static void InputFromExcelZip(string path)
         {
             IEnumerable<Sale> sales = XlsxToMSSQL.ExcelInterface.ReadSalesFromZip(path);
@@ -109,6 +106,9 @@ namespace ConsoleFrontend
             }
             Menu();
         }
+        #endregion
+
+        #region Problem 3 - Generate PDF Report Controller
         public static void GeneratePdfReport(string path, DateTime start, DateTime end)
         {
             MsSqlToPDF.PdfExpenses.CreatePdfSalesReport(path,
@@ -119,6 +119,9 @@ namespace ConsoleFrontend
                                                         SqlServerClient.GetProducts().ToList()
                                                     );
         }
+        #endregion
+
+        #region Problem 4 - Generate XML Report Controller
         public static void GenerateXmlReport(string path)
         {
             try
@@ -135,7 +138,25 @@ namespace ConsoleFrontend
             }
             Console.ReadKey();
         }
+        #endregion
 
+        #region Problem 5 - Export to Json & Mongo Controller
+        static void ExportToJson(string path)
+        {
+            try
+            {
+                ExportToMongo.ExportReportsToMongoAndJson(path, SqlServerClient.GetSales().ToList(), SqlServerClient.GetProducts().ToList());
+                Console.WriteLine("Success");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Fuck!");
+                throw;
+            }
+        }
+        #endregion
+
+        #region Problem 6 - Import XML Controller
         public static void SaveExpensesToDatabase(string path)
         {
             try
@@ -151,5 +172,6 @@ namespace ConsoleFrontend
             }
             Console.ReadKey();
         }
+        #endregion
     }
 }
