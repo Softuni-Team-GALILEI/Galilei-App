@@ -3,7 +3,7 @@
     using OracleDb.Client;
     using SQLServer.Client;
     using SQLServer.Model;
-    static class OracleToSql
+    public static class OracleToSql
     {
         #region Product Migrator
         private static void MigrateProducts()

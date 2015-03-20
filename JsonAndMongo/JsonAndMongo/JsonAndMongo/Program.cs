@@ -1,41 +1,35 @@
-﻿using MongoDB.Driver;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLServer.Model;
-
-namespace JsonAndMongo
+﻿namespace JsonAndMongo
 {
-    class Program
+    using System.IO;
+    using System.Linq;
+    using MongoDB.Driver;
+    using SQLServer.Model;
+    using Newtonsoft.Json;
+    using System.Collections.Generic;
+
+    public static class ExportToMongo
     {
         const string DatabaseHost = "mongodb://127.0.0.1";
         const string DatabaseName = "MongoDB";
         const string Collection = "reports";
 
 
-        static void Main(string[] args)
+        public static void ExportReportsToMongoAndJson(string path, List<Sale> sales, List<Product> products)
         {
-            var sm = new SupermarketEntities();
-
-            var groups = sm.Sales.GroupBy(p => p.ProductID);
+            var groups = sales.GroupBy(p => p.ProductID);
 
             foreach (var group in groups)
             {
-                string vendorName = sm.Products.Find(group.Key).Vendor.Vendor_Name;
-
-                string productName = sm.Products.Find(group.Key).Product_Name;
+                string vendorName = products.Find(p => p.ID == group.Key).Vendor.Vendor_Name;
+                string productName = products.Find(p => p.ID == group.Key).Product_Name;
                 decimal incomes = (decimal)group.Sum(p => p.PriceSum);
                 int quantitySold = (int)group.Sum(p => p.Quantity);
                 int id = (int)group.Key;
 
                 var report = generateReport(id, productName, vendorName, quantitySold, incomes);
 
-                ExportReportToFile(report, id);
-                InsertReportInMongo(report);
+                ExportReportToFile(path, report, id);
+                //InsertReportInMongo(report); TODO: UNCOMMENT 
             }
         }
 
@@ -54,11 +48,11 @@ namespace JsonAndMongo
             salesByProductReports.Insert<SalesByProductReports>(report);
         }
 
-        private static void ExportReportToFile(SalesByProductReports report, int id)
+        private static void ExportReportToFile(string path, SalesByProductReports report, int id)
         {
             string json = JsonConvert.SerializeObject(report, Formatting.Indented);
 
-            File.WriteAllText(@"../../JsonReports/" + id + @".json", json);
+            File.WriteAllText(path + id + @".json", json);
         }
 
         static MongoDatabase GetDatabase(string name, string fromHost)

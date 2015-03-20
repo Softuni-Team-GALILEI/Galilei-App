@@ -12,7 +12,7 @@ namespace XlsxToMSSQL
     using SQLServer.Client;
     using System.Collections.Generic;
 
-    class ExcelInterface
+    public class ExcelInterface
     {
         #region Private Methods
         private static Sale GenerateSale(DateTime date,string productName, string supermarketName, decimal priceUnit, int quantity)
@@ -128,95 +128,5 @@ namespace XlsxToMSSQL
             return sales.ToList();
         }
         #endregion
-    }
-
-    class TestingClass
-    {
-        static void InputZip()
-        {
-            Console.WriteLine("Please input path to zip");
-            string path = Console.ReadLine();
-            IEnumerable<Sale> sales =ExcelInterface.ReadSalesFromZip(path);
-            PrintSales(sales);
-
-
-            Console.WriteLine("Do you want to import these entries to sql server?(Y/N)");
-            ConsoleKeyInfo choice = Console.ReadKey();
-            switch (choice.Key)
-            {
-                case ConsoleKey.Y:
-                    try
-                    {
-                        ImportSalesInSQLServer(sales);
-                        Console.WriteLine("Importing...");
-                    }
-                    catch (Exception e)
-                    {
-                        Error(e);
-                        throw;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            ReturnToMenu();
-        }
-
-        static void PrintSales(IEnumerable<Sale> sales)
-        {
-            foreach (Sale sale in sales)
-            {
-                Console.WriteLine("{0} \t\t\t {1} \t {2} \t {3}", SqlServerClient.GetProductsById(sale.ProductID).Product_Name, sale.PriceUnit, sale.PriceSum, SqlServerClient.GetSupermarketsById((int)sale.SupermarketID).Name);
-            }
-        }
-        static void ReturnToMenu()
-        {
-            Console.WriteLine("Press the any key to return to menu!");
-            Console.ReadKey();
-            ConsoleLoop();
-        }
-        static void Done()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Done! Press any key to return to menu!");
-            Console.ReadKey();
-            Console.ForegroundColor = ConsoleColor.Gray;
-            ConsoleLoop();
-        }
-
-        static void Error(Exception e)
-        {
-            Console.WriteLine("There was an error {0}", e.Message);
-        }
-        static void ImportSalesInSQLServer(IEnumerable<Sale> sales)
-        {
-            foreach (var sale in sales)
-            {
-                SqlServerClient.AddSale(sale);
-            }
-        }
-        static void ConsoleLoop()
-        {
-            Console.Clear();
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[1] - Read Sales from a Zip file");
-            Console.WriteLine("[X] - Exit the program");
-            Console.Write("Your choice: ");
-            ConsoleKeyInfo choice = Console.ReadKey();
-            Console.Clear();
-            switch (choice.KeyChar)
-            {
-                case '1':
-                    InputZip();
-                    break;
-                case 'x':
-                    break;
-            }
-        }
-
-        public static void Main()
-        {
-            ConsoleLoop();
-        }
     }
 }

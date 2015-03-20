@@ -11,10 +11,7 @@ C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAn
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\MongoDB.Bson.xml
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\MongoDB.Driver.xml
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.csprojResolveAssemblyReference.cache
-D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.exe
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.pdb
-D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.exe.config
-D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.exe
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.pdb
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\EntityFramework.dll
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\EntityFramework.SqlServer.dll
@@ -29,3 +26,6 @@ D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\E
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\MongoDB.Bson.xml
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\MongoDB.Driver.xml
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\Newtonsoft.Json.xml
+D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.dll.config
+D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.dll
+D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.dll
