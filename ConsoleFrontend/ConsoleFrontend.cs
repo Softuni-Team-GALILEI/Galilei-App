@@ -75,6 +75,7 @@
         #region Problem 2 - Import from Excel in Zip Controller
         static void InputFromExcelZip(string path)
         {
+            
             IEnumerable<Sale> sales = XlsxToMSSQL.ExcelInterface.ReadSalesFromZip(path);
             
             foreach (Sale sale in sales)
@@ -165,10 +166,10 @@
                 expenses.ForEach( e => SqlServerClient.AddExpense(e));
                 Console.WriteLine("\nDone! Press Any key to return to main menu.");
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Console.WriteLine("Fuck this");
-                throw;
+                throw e;
             }
             Console.ReadKey();
         }
