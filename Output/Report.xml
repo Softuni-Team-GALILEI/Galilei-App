@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<summary>
+  <vendor vendor="Nestle Sofia Corp.">
+    <sale date="20-Jul-2014">34.8000</sale>
+    <sale date="20-Jul-2014">19.9500</sale>
+    <sale date="21-Jul-2014">26.1000</sale>
+    <sale date="21-Jul-2014">14.2500</sale>
+    <sale date="22-Jul-2014">40.6000</sale>
+  </vendor>
+  <vendor vendor="Zagorka Corp.">
+    <sale date="20-Jul-2014">37.0000</sale>
+    <sale date="20-Jul-2014">48.0000</sale>
+    <sale date="20-Jul-2014">59.8000</sale>
+    <sale date="21-Jul-2014">11.0000</sale>
+    <sale date="21-Jul-2014">51.6000</sale>
+    <sale date="21-Jul-2014">71.7600</sale>
+    <sale date="21-Jul-2014">78.7500</sale>
+    <sale date="21-Jul-2014">128.4800</sale>
+    <sale date="22-Jul-2014">16.0000</sale>
+    <sale date="22-Jul-2014">21.6000</sale>
+    <sale date="22-Jul-2014">82.8000</sale>
+    <sale date="22-Jul-2014">63.0000</sale>
+    <sale date="22-Jul-2014">202.4000</sale>
+  </vendor>
+  <vendor vendor="Targovishte Bottling Company Ltd.">
+    <sale date="20-Jul-2014">119.0000</sale>
+    <sale date="20-Jul-2014">31.2000</sale>
+    <sale date="21-Jul-2014">170.0000</sale>
+    <sale date="21-Jul-2014">515.9000</sale>
+    <sale date="21-Jul-2014">23.4000</sale>
+    <sale date="22-Jul-2014">204.0000</sale>
+    <sale date="22-Jul-2014">92.4000</sale>
+  </vendor>
+</summary>

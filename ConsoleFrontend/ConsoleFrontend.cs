@@ -19,11 +19,11 @@
 
         #region Hard-Coded Input & Output
 
-        private static string inputExcel            = "Input/excel.zip";
-        private static string inputReport           = "Input/report.xml";
-        private static string outputReport          = "Output/report.xml";
-        private static string outputPdf             = "Output/report.pdf";
-        private static string outputJson            = "Output/";
+        private static string inputExcel            = "../../../Input/excel.zip";
+        private static string inputReport           = "../../../Input/report.xml";
+        private static string outputReport          = "../../../Output/report.xml";
+        private static string outputPdf             = "../../../Output/report.pdf";
+        private static string outputJson            = "../../../Output/";
         private static DateTime sampleDataStartDate = new DateTime(2014, 7, 20);
         private static DateTime sampleDataEndDate   = new DateTime(2014, 7, 22);
 
