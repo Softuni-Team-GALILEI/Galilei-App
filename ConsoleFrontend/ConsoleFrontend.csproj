@@ -1,3 +1,4 @@
+<<<<<<< .mine
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -103,6 +104,113 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF5ADBF9-BC27-48E6-96C6-4C5F72BF5CE8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleFrontend</RootNamespace>
+    <AssemblyName>ConsoleFrontend</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConsoleFrontend.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonAndMongo\JsonAndMongo\JsonAndMongo\JsonAndMongo.csproj">
+      <Project>{52c63150-cba2-4d6b-a036-43bf491e48e9}</Project>
+      <Name>JsonAndMongo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MsSqlToPDF\MsSqlToPDF.csproj">
+      <Project>{0a4f4b6b-7d15-4666-9da0-b2af06e92d7c}</Project>
+      <Name>MsSqlToPDF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OracleDb.Client\OracleDb.Client.csproj">
+      <Project>{7249c725-42a5-4eed-bff7-5f8ba83749f9}</Project>
+      <Name>OracleDb.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OracleDb.Data\OracleDb.Data.csproj">
+      <Project>{4da0c362-c3a8-4125-b336-50fbd438d133}</Project>
+      <Name>OracleDb.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OracleDb.Model\OracleDb.Model.csproj">
+      <Project>{bbb8e781-e889-4df0-85f2-2794e1f06d8c}</Project>
+      <Name>OracleDb.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OracleToSQLServerBridge\OracleToSQLServerBridge.csproj">
+      <Project>{8dc1896b-09a7-49f8-a4ae-87b76a846f95}</Project>
+      <Name>OracleToSQLServerBridge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServer.Client\SQLServer.Client.csproj">
+      <Project>{798bc705-f752-4ae6-9ae9-691681f72fb7}</Project>
+      <Name>SQLServer.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServer.Model\SQLServer.Model.csproj">
+      <Project>{3cc929d4-2ab1-4718-95a7-d99cd2f754de}</Project>
+      <Name>SQLServer.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XlsxToMSSQL\XlsxToMSSQL\XLSInterface.csproj">
+      <Project>{db84d747-1432-4b64-a28c-c1edfaeba535}</Project>
+      <Name>XLSInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlReports\GenerateXmlReport\GenerateXmlReport.csproj">
+      <Project>{b559c450-0c71-4220-9c38-9de1f3e0da22}</Project>
+      <Name>GenerateXmlReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlReports\LoadDataFromXml\LoadDataFromXml.csproj">
+      <Project>{909ccb28-09b2-424c-94a3-6c82907c92fc}</Project>
+      <Name>LoadDataFromXml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+>>>>>>> .r35
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
