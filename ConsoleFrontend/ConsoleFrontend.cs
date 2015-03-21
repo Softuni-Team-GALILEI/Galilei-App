@@ -8,6 +8,8 @@
     using SQLServer.Client;
     using GenerateXmlReport;
     using System.Collections.Generic;
+    using MysqlContext;
+    using MigrateToMysql;
 
     class ConsoleFrontend
     {
@@ -41,6 +43,7 @@
             Console.WriteLine("[4] - Generate Xml Report");
             Console.WriteLine("[5] - Generate Product Json Files ");
             Console.WriteLine("[6] - Read Expenses from Xml");
+            Console.WriteLine("[7] - Migrate MSSQL to Mysql");
             Console.WriteLine("[X] - Quit");
             switch (Console.ReadKey().KeyChar)
             {
@@ -61,6 +64,9 @@
                     break;
                 case '6':
                     SaveExpensesToDatabase(inputReport);
+                    break;
+                case '7':
+                    Migrator.MigrateToMysql();
                     break;
                 case 'X':
                     break;

@@ -7,10 +7,14 @@ namespace LoadDataFromXml
     using SQLServer.Model;
     using SQLServer.Client;
     using System.Collections.Generic;
+    using System.Threading;
+
     public class XmlLoader
     {
         public static List<Expens> LoadExpensesFromXml(string path)
         {
+            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
             ICollection<Expens> expenses    = new List<Expens>();
             IEnumerable<Vendor> Vendors     = SqlServerClient.GetVendors();
             var doc                         = new XmlDocument();
@@ -32,12 +36,9 @@ namespace LoadDataFromXml
 
                     Console.WriteLine("\t {0} - {1}", expenseDate, amount);
 
-                    expenses.Add(new Expens
-                    {
-                        VendorID = dbVendor.ID,
-                        Time = DateTime.Parse(expenseDate),
-                        ExpenseSum = Decimal.Parse(amount)
-                    });
+                    Expens newExpense = new Expens() { VendorID = dbVendor.ID, Time = DateTime.Parse(expenseDate), ExpenseSum = decimal.Parse(amount) };
+                    
+                    expenses.Add(newExpense);
                 }
             }
 
