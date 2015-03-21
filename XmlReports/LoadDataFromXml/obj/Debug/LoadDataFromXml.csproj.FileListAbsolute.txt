@@ -11,3 +11,15 @@ D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromX
 D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.dll.config
 D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.dll
 D:\Code\Teamworks\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.dll
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.dll.config
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.dll
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\LoadDataFromXml.pdb
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\EntityFramework.dll
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Client.exe
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Model.dll
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Client.pdb
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\SQLServer.Model.pdb
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\bin\Debug\EntityFramework.xml
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.csprojResolveAssemblyReference.cache
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.dll
+D:\xampp\htdocs\Galilei-App\XmlReports\LoadDataFromXml\obj\Debug\LoadDataFromXml.pdb

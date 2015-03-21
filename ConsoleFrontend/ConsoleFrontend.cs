@@ -168,7 +168,7 @@
         {
             try
             {
-                List<Expens> expenses = XmlLoader.LoadExpensesFromXml("Input/reports.xml");
+                List<Expens> expenses = XmlLoader.LoadExpensesFromXml(path);
                 expenses.ForEach( e => SqlServerClient.AddExpense(e));
                 Console.WriteLine("\nDone! Press Any key to return to main menu.");
             }
