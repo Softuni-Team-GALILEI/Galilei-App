@@ -102,20 +102,20 @@
                     table.AddCell(daySumCell);
                     table.AddCell(sumCellSum);
                     grandSum += daySum;
-
-
-                    var grandTotalTextCell = new PdfPCell(new Phrase("Grand total:"));
-                    grandTotalTextCell.BackgroundColor = new BaseColor(173, 224, 255);
-                    grandTotalTextCell.Colspan = 4;
-                    grandTotalTextCell.HorizontalAlignment = 2;
-                    var grandTotalCell = new PdfPCell(new Phrase(String.Format(grandSum.ToString())));
-                    grandTotalCell.BackgroundColor = new BaseColor(173, 224, 255);
-                    grandTotalCell.HorizontalAlignment = 2;
-                    grandTotalCell.Colspan = 1;
-
-                    table.AddCell(grandTotalTextCell);
-                    table.AddCell(grandTotalCell);
                 }
+
+                var grandTotalTextCell = new PdfPCell(new Phrase("Grand total:"));
+                grandTotalTextCell.BackgroundColor = new BaseColor(173, 224, 255);
+                grandTotalTextCell.Colspan = 4;
+                grandTotalTextCell.HorizontalAlignment = 2;
+                var grandTotalCell = new PdfPCell(new Phrase(String.Format(grandSum.ToString())));
+                grandTotalCell.BackgroundColor = new BaseColor(173, 224, 255);
+                grandTotalCell.HorizontalAlignment = 2;
+                grandTotalCell.Colspan = 1;
+
+                table.AddCell(grandTotalTextCell);
+                table.AddCell(grandTotalCell);
+
                 doc.Add(table);
                 doc.Close();
                 Console.WriteLine("File " + path + " was successfully created.");
