@@ -1,6 +1,7 @@
 ﻿using SqliteDemo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,7 +114,8 @@ namespace GenerateExcel
                 workSheet.Range["A1"].AutoFormat(Microsoft.Office.Interop.Excel.XlRangeAutoFormat.xlRangeAutoFormatClassic1);
 
                 // Define filename
-                string fileName = string.Format(@"{0}\ExcelData.xlsx", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+                string absolutePath = Path.GetFullPath(@"..\..\..\Output");
+                string fileName = string.Format(@"{0}\ExcelData.xlsx", absolutePath);
 
                 // Save this data as a file
                 workSheet.SaveAs(fileName);
