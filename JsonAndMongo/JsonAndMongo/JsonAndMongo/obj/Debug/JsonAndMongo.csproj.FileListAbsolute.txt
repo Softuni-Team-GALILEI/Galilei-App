@@ -1,9 +1,6 @@
-C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.exe.config
-C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.exe
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.pdb
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\EntityFramework.xml
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.csprojResolveAssemblyReference.cache
-C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.exe
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.pdb
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\MongoDB.Bson.dll
@@ -29,3 +26,13 @@ D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\N
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.dll.config
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.dll
 D:\Code\Teamworks\Galilei-App\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.dll
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.dll.config
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\JsonAndMongo.dll
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\EntityFramework.dll
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\SQLServer.Client.exe
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\SQLServer.Model.dll
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\SQLServer.Client.pdb
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\SQLServer.Model.pdb
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vencislav\Desktop\DbAppsTeamwork\trunk\JsonAndMongo\JsonAndMongo\JsonAndMongo\obj\Debug\JsonAndMongo.dll

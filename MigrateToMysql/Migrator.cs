@@ -30,7 +30,6 @@ namespace MigrateToMysql
 
                 foreach (var expense in expensesFromSqlServer)
                 {
-                    Console.WriteLine(string.Format("{0} --> {1}", expense.Time,expense.Vendor.Vendor_Name));
                     int correspondingVendorId = GetRelatedVendorIdFromVendorName(expense.Vendor.Vendor_Name);
 
                     mysqlDb.Expenses.Add(new Expens() { ExpenseSum = expense.ExpenseSum, Time = expense.Time, VendorID = correspondingVendorId });
@@ -99,7 +98,7 @@ namespace MigrateToMysql
 
                 foreach (var vendor in vendorsFromSqlServer)
                 {
-                    mysqlDb.Vendors.Add(new Vendor() { Vendor_Name = vendor.Vendor_Name, Expenses = vendor.Expenses });
+                    mysqlDb.Vendors.Add(new Vendor() { Vendor_Name = vendor.Vendor_Name });
                     mysqlDb.SaveChanges();
                 }
             }

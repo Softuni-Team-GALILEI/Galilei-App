@@ -124,10 +124,10 @@
                 transaction.Commit();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 transaction.Rollback();
-                throw;
+                throw e;
             }
         }
         public static void AddMeasure(Measure item)

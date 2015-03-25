@@ -29,7 +29,7 @@
                 var report = generateReport(id, productName, vendorName, quantitySold, incomes);
 
                 ExportReportToFile(path, report, id);
-                //InsertReportInMongo(report); TODO: UNCOMMENT 
+                InsertReportInMongo(report);
             }
         }
 
