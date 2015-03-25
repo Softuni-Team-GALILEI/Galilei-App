@@ -10,11 +10,13 @@
     using System.Collections.Generic;
     using MysqlContext;
     using MigrateToMysql;
+    using GenerateExcel;
 
     class ConsoleFrontend
     {
         static void Main()
         {
+
             Menu();
         }
 
@@ -36,7 +38,9 @@
         static void Menu()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("What do you want to do?");
+            Console.WriteLine("[0] - insert data into oracle");
             Console.WriteLine("[1] - Transfer Oracle DB to MSSQL");
             Console.WriteLine("[2] - Read Excel Sales Reports");
             Console.WriteLine("[3] - Generate PDF Sales Report");
@@ -44,9 +48,13 @@
             Console.WriteLine("[5] - Generate Product Json Files ");
             Console.WriteLine("[6] - Read Expenses from Xml");
             Console.WriteLine("[7] - Migrate MSSQL to Mysql");
+            Console.WriteLine("[8] - Create Financial Report in excel file");
             Console.WriteLine("[X] - Quit");
             switch (Console.ReadKey().KeyChar)
             {
+                case '0':
+                    OracleDb.Client.OracleDbClient.AddDataToOracle();
+                    break;
                 case '1':
                     OracleToSQLServerBridge.OracleToSql.MigrateDatabase();
                     break;
@@ -65,15 +73,24 @@
                 case '6':
                     SaveExpensesToDatabase(inputReport);
                     break;
+                case '8':
+                    ExcelGenerator.GenerateExcel();
+                    break;
                 case '7':
                     Migrator.MigrateToMysql();
                     break;
                 case 'X':
                     break;
                 default:
+
                     Menu();
                     break;
             }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nDone! Press Any Key to continue . . .");
+            Console.ReadKey();
+            Menu();
+
         }
         #endregion
         
@@ -111,7 +128,6 @@
                 default:
                     break;
             }
-            Menu();
         }
         #endregion
 
@@ -136,14 +152,12 @@
                 XmlSalesReportGenerator.PrintReport(SqlServerClient.GetVendors().ToList(),
                             SqlServerClient.GetSales().ToList(),
                             path);
-                Console.WriteLine("Done! Press Any key to return to main menu.");
             }
             catch (Exception)
             {
                 Console.WriteLine("Fuck this");
                 throw;
             }
-            Console.ReadKey();
         }
         #endregion
 
@@ -170,14 +184,12 @@
             {
                 List<Expens> expenses = XmlLoader.LoadExpensesFromXml(path);
                 expenses.ForEach( e => SqlServerClient.AddExpense(e));
-                Console.WriteLine("\nDone! Press Any key to return to main menu.");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Fuck this");
                 throw e;
             }
-            Console.ReadKey();
         }
         #endregion
     }
