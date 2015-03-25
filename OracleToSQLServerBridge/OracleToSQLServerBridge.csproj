@@ -56,6 +56,10 @@
       <Project>{7249c725-42a5-4eed-bff7-5f8ba83749f9}</Project>
       <Name>OracleDb.Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OracleDb.Data\OracleDb.Data.csproj">
+      <Project>{4da0c362-c3a8-4125-b336-50fbd438d133}</Project>
+      <Name>OracleDb.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OracleDb.Model\OracleDb.Model.csproj">
       <Project>{bbb8e781-e889-4df0-85f2-2794e1f06d8c}</Project>
       <Name>OracleDb.Model</Name>

@@ -15,8 +15,8 @@
                 sqlServerProduct.Product_Name   = oracleProduct.PRODUCT_NAME;
                 sqlServerProduct.Price          = oracleProduct.PRICE;
                 sqlServerProduct.ID             = oracleProduct.ID;
-                sqlServerProduct.MeasureID      = oracleProduct.MEASURE_ID;
-                sqlServerProduct.VendorID       = oracleProduct.VENDOR_ID;
+                sqlServerProduct.MeasureID      = oracleProduct.MEASURE_ID*100;
+                sqlServerProduct.VendorID       = oracleProduct.VENDOR_ID*10;
 
                 SqlServerClient.AddProduct(sqlServerProduct);
             }
@@ -32,7 +32,7 @@
                 SQLServer.Model.Vendor sqlServerVendor = new Vendor();
 
                 sqlServerVendor.Vendor_Name     = oracleVendor.VENDOR_NAME;
-                sqlServerVendor.ID              = oracleVendor.ID;
+                sqlServerVendor.ID              = oracleVendor.ID*10;
 
                 SqlServerClient.AddVendor(sqlServerVendor);
             }
@@ -42,12 +42,16 @@
         #region Measure migrator
         static void MigrateMeasures()
         {
+            //foreach (var measure in OracleDbClient.ReadAllMeasures())
+            //{
+            //    System.Console.WriteLine(measure.MEASURE_NAME);
+            //}
 
             foreach (var oracleMeasure in OracleDbClient.ReadAllMeasures())
             {
                 SQLServer.Model.Measure sqlServerMeasure = new Measure();
                 sqlServerMeasure.Measure_Name = oracleMeasure.MEASURE_NAME;
-                sqlServerMeasure.ID = oracleMeasure.ID;
+                sqlServerMeasure.ID = oracleMeasure.ID*100;
 
                 SqlServerClient.AddMeasure(sqlServerMeasure);
             }
@@ -58,6 +62,7 @@
         #region Database migrator
         public static void MigrateDatabase()
         {
+
             MigrateVendors();
             MigrateMeasures();
             MigrateProducts();

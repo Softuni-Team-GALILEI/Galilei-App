@@ -134,6 +134,7 @@
 
         public static ICollection<Measure> ReadAllMeasures()
         {
+
             using (var db = new OracleDbContext())
             {
                 return db.Measures.ToList();
@@ -335,6 +336,47 @@
                 }
 
                 return db.SaveChanges();
+            }
+        }
+
+        public static void AddDataToOracle() 
+        {
+            string[] measureNames = {"Ton", "Gallon", "Mililitres", "Newton", "Centimetre"};
+            string[] vendorNames = {"Shezhen Electronics", "Sofia Beer Company", "Bansko Water Farm"};
+            string[] productNames = {"Teqila Sofia", "Cake Malinka"};
+
+
+
+            using (var db = new OracleDbContext())
+            {
+                foreach (var item in db.Products)
+                {
+                    
+                Console.WriteLine();
+                }
+                //foreach(string str in measureNames)
+                //{
+                //    db.Measures.Add(new Measure(){MEASURE_NAME = str});
+                //    db.SaveChanges();
+                //}
+                //foreach (string str in vendorNames) 
+                //{
+                //    db.Vendors.Add(new Vendor(){VENDOR_NAME = str});
+                //    db.SaveChanges();
+                //}
+                //foreach(string str in productNames)
+                //{
+                //    Random r = new Random();
+                //    db.Products.Add(new Product()
+                //    {
+                //        PRODUCT_NAME = str,
+                //        VENDOR_ID = db.Vendors.ToList()[r.Next(0, db.Vendors.Count())].ID,
+                //        PRICE = (decimal)(r.NextDouble() * r.Next(0, 1000)),
+                //        MEASURE_ID = db.Measures.ToList()[r.Next(0, db.Measures.Count())].ID
+                //    });
+                //    db.SaveChanges();
+                //}
+                
             }
         }
     }
