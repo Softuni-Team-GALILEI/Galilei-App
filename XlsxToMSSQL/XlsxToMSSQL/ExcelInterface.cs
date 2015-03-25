@@ -103,6 +103,7 @@ namespace XlsxToMSSQL
         #region Zip Logic
         public static IEnumerable<Sale> ReadSalesFromZip(string path)
         {
+            //Console.WriteLine(Directory.GetCurrentDirectory());
             ZipFile zip = new ZipFile(path);
             IEnumerable<Sale> sales = null;
 
